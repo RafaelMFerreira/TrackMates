@@ -1,0 +1,13 @@
+<!-- gem-calculator.component.html -->
+<div class="gem-calculator">
+  <div class="input-group" *ngFor="let stone of stones">
+    <img [src]="stone.icon" alt="{{stone.name}}">
+    <input type="number" [(ngModel)]="stone.amount" placeholder="Enter amount of {{stone.name}}">
+  </div>
+  <div class="result">
+    <h3>Total: {{ totalValue |  number:'1.0-0':'pt-BR'}}xp</h3>
+  </div>
+  <div class="additional-info">
+    <small>XP do 50 pro 70: 303.992</small>
+  </div>
+</div>

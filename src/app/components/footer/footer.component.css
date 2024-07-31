@@ -1,0 +1,22 @@
+/* footer.component.css */
+footer {
+  background-color: #002244; /* Darker shade of blue */
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  width: 100%;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.5);
+  position: relative; /* or 'fixed' if you want it always at the bottom */
+}
+
+
+footer a {
+  color: #99ccff;
+  text-decoration: none;
+  padding: 0 5px;
+}
+
+footer a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
