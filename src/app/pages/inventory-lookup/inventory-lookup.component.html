@@ -1,0 +1,11 @@
+<div class="inventory-lookup">
+  <input [(ngModel)]="username" placeholder="Enter username">
+  <button (click)="fetchItems()">Search</button>
+
+  <ngb-progressbar [value]="progressValue" [max]="totalItems" type="success"></ngb-progressbar>
+
+  <div *ngFor="let item of userItems">
+      <img [src]="item.icon" alt="{{item.name}}">
+      <span>{{ item.name }}: {{ item.quantity }}</span>
+  </div>
+</div>

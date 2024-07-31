@@ -1,12 +1,12 @@
 /* header.component.css */
 header {
-  background-color: #003366; /* Dark blue background */
+  background-color: #003366;
   color: white;
   padding: 0px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Adds depth with a shadow */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 nav {
@@ -21,7 +21,7 @@ nav {
 }
 
 .nav-link:hover, .nav-link.active {
-  background-color: #336699; /* Lighter blue for hover and active */
+  background-color: #336699;
   color: #FFF;
 }
 

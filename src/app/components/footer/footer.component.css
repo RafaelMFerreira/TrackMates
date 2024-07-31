@@ -1,12 +1,12 @@
 /* footer.component.css */
 footer {
-  background-color: #002244; /* Darker shade of blue */
+  background-color: #002244;
   color: white;
   text-align: center;
   padding: 10px 20px;
   width: 100%;
   box-shadow: 0 -2px 4px rgba(0,0,0,0.5);
-  position: relative; /* or 'fixed' if you want it always at the bottom */
+  position: relative; 
 }
 
 
