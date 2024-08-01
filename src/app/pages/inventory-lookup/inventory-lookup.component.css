@@ -1,0 +1,81 @@
+
+.inventory-lookup {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #ff4500;
+  margin: 20px;
+  }
+  .item-entry {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #333333;
+  border-radius: 8px;
+  border: 1px solid #ff4500;
+  width: 100%;
+  }
+  .item-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  }
+  .item-details {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  }
+  .banana-progress-bar {
+  width: 100%;
+  height: 30px;
+  background-color: #e3be1e;
+  border-radius: 15px;
+  border: 1px solid #c2a317;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), inset 0 1px 3px rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  }
+  .banana-fill {
+  background: linear-gradient(90deg, #fff494 0%, #f6e27b 100%);
+  height: 100%;
+  width: 0;
+  transition: width 0.5s ease-in-out;
+  }
+  .loading-indicator {
+  color: #ffecb3;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+  }
+  .input-group {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  }
+  .input-field {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid #ff4500;
+  color: #ffffff;
+  background-color: #333;
+  outline: none;
+  }
+  .button-search {
+  padding: 10px 20px;
+  border: none;
+  background-color: #ff4500;
+  color: #ffffff;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  }
+  .button-search:hover {
+  background-color: #e63e00;
+  }

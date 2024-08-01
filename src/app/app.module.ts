@@ -1,6 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,24 +15,23 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 registerLocaleData(localePt);
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    GemCalculatorComponent,
-    InventoryLookupComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    NgbModule,
-    HttpClientModule
-  ],
-  providers: [
-    { provide: LOCALE_ID, useValue: 'pt-BR' }
-  ],
-  bootstrap: [AppComponent]
+@NgModule({ declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        GemCalculatorComponent,
+        InventoryLookupComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        NgbModule
+    ],
+    bootstrap: [AppComponent],
+    providers: [
+        { provide: LOCALE_ID, useValue: 'pt-BR' },
+        provideHttpClient(withInterceptorsFromDi())
+    ]
 })
 export class AppModule { }
