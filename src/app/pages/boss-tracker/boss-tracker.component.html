@@ -1,12 +1,12 @@
 <div class="boss-tracker">
   <div class="header">
-    <h1>Total Kills: {{ totalKills }}</h1>
+    <h1 class="animated-number">Total Kills: {{ totalKills }}</h1>
   </div>
 
   <div class="boss-cards">
     <div class="boss-card" *ngFor="let boss of bossApis">
       <img [src]="boss.iconUrl" alt="{{ boss.bossKey }}">
-      <h2>{{ boss.bossKey | titlecase }}:<br>{{ getTotalKillsForBoss(boss.bossKey) }}</h2>
+      <h2>{{ boss.bossKey | titlecase }}: <br>{{ bossKillsTotals.get(boss.bossKey) }}</h2>
     </div>
   </div>
 

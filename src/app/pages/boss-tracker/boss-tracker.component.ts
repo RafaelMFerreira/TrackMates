@@ -47,11 +47,13 @@ export class BossTrackerComponent {
   totalNightfangKills: number = 0;
   searchUsername: string = '';
   isSearchActive: boolean = false;
+  bossKillsTotals: Map<string, number> = new Map();
 
   killGroups: KillGroup[] = [];
   allPlayers: Map<number, Player> = new Map();
   openedTabs = new Set<string>();
   filteredPlayers = new Map<string, any[]>();
+  refreshIntervalId: any;
 
   bossApis: BossApi[] = [
     { baseUrl: 'https://bitmatemediator.net/game/v1/killstats?valueid=5&time=monthly', bossKey: 'crustadon', iconUrl: 'https://storage.googleapis.com/apes-f984d.appspot.com/Enemies/Crustadon.png' },
@@ -61,7 +63,24 @@ export class BossTrackerComponent {
   ];
 
   constructor(private http: HttpClient) {
+    this.bossApis.forEach(api => {
+      this.bossKillsTotals.set(api.bossKey, 0);
+    });
     this.fetchAllData();
+  }
+
+  ngOnInit(): void {
+    // this.fetchAllData();
+    this.refreshIntervalId = setInterval(() => {
+      this.allPlayers.clear();
+      this.fetchAllData();
+    }, 300000); //Refresh a cada 5min
+  }
+
+  ngOnDestroy(): void {
+    if (this.refreshIntervalId) {
+      clearInterval(this.refreshIntervalId);
+    }
   }
 
   fetchAllData() {
@@ -72,6 +91,8 @@ export class BossTrackerComponent {
     const url = `${api.baseUrl}&page=${page}`;
     this.http.get<any[]>(url).subscribe(players => {
       if (players.length > 0) {
+        let currentTotalKills = this.totalKills;
+        let currentBossTotal = this.bossKillsTotals.get(api.bossKey) || 0;
         players.forEach(player => {
           let playerEntry = this.allPlayers.get(player.id);
           if (!playerEntry) {
@@ -86,6 +107,12 @@ export class BossTrackerComponent {
           playerEntry.kills.total += player.value;
         });
         this.totalKills = Array.from(this.allPlayers.values()).reduce((acc, p) => acc + p.kills.total, 0);
+        this.animateNumberChange(currentTotalKills, this.totalKills);
+
+        let newBossTotal = Array.from(this.allPlayers.values()).reduce((sum, player) => sum + player.kills[api.bossKey as keyof typeof player.kills], 0);
+        this.bossKillsTotals.set(api.bossKey, newBossTotal);
+        this.animateNumberChange(currentBossTotal, newBossTotal, 800, api.bossKey);
+
         this.setupGroups();
         this.fetchData(api, page + 1);
       }
@@ -169,5 +196,29 @@ export class BossTrackerComponent {
 
   isTabOpen(groupRange: string): boolean {
     return this.openedTabs.has(groupRange);
+  }
+
+  animateNumberChange(currentValue: number, newValue: number, duration: number = 800, bossKey?: string) {
+    const startTimestamp = Date.now();
+    const step = () => {
+      const elapsed = Date.now() - startTimestamp;
+      const progress = Math.min(elapsed / duration, 1);
+      const interpolatedValue = currentValue + (newValue - currentValue) * progress;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+        if (bossKey) {
+          this.bossKillsTotals.set(bossKey, Math.floor(interpolatedValue));
+        } else {
+          this.totalKills = Math.floor(interpolatedValue);
+        }
+      } else {
+        if (bossKey) {
+          this.bossKillsTotals.set(bossKey, newValue);
+        } else {
+          this.totalKills = newValue;
+        }
+      }
+    };
+    requestAnimationFrame(step);
   }
 }
