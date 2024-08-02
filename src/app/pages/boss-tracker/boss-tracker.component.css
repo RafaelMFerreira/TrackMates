@@ -1,0 +1,139 @@
+.boss-tracker {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+  margin: 20px;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+  font-size: 2rem;
+}
+
+.boss-cards {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.boss-card {
+  background-color: #333333;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  width: 23%;
+}
+
+.boss-card img {
+  width: 80px;
+  height: 80px;
+}
+
+.tab {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.tab input[type="checkbox"] {
+  display: none;
+}
+
+.tab label {
+  display: block;
+  padding: 10px;
+  background-color: #ff4500;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tab-content {
+  background-color: #333333;
+  border-radius: 8px;
+  padding: 10px;
+  display: none;
+}
+
+.tab input[type="checkbox"]:checked + label + .tab-content {
+  display: block;
+}
+
+.input-group {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.input-field, .button-search {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ff4500;
+}
+
+.input-field {
+  flex-grow: 1;
+  background-color: #333;
+  color: #ffffff;
+}
+
+.button-search {
+  background-color: #ff4500;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-search:hover {
+  background-color: #e63e00;
+}
+
+.hidden {
+  display: none;
+}
+
+.kill-cards {
+  display: flex;
+  margin-top: 10px; /* Adds space between the player name and their kills */
+}
+
+.kill-card {
+  background-color: #202020;
+  border-radius: 8px;
+  padding: 5px 10px;
+  margin-right: 10px; /* Space between each kill card */
+  display: flex;
+  align-items: center; /* Aligns the text and the icon vertically */
+}
+
+.kill-icon {
+  width: 20px; /* Smaller icon size */
+  height: 20px;
+  margin-right: 5px; /* Space between the icon and the text */
+}
+
+.kill-card span {
+  color: #ffffff;
+  font-size: 0.8rem; /* Smaller font size for the text within the card */
+}
+
+.progress-container {
+  position: relative;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+
+

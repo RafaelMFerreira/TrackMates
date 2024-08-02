@@ -12,6 +12,7 @@ import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { InventoryLookupComponent } from './pages/inventory-lookup/inventory-lookup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BossTrackerComponent } from './pages/boss-tracker/boss-tracker.component';
 
 registerLocaleData(localePt);
 
@@ -20,7 +21,8 @@ registerLocaleData(localePt);
         HeaderComponent,
         FooterComponent,
         GemCalculatorComponent,
-        InventoryLookupComponent
+        InventoryLookupComponent,
+        BossTrackerComponent
     ],
     imports: [
         BrowserModule,

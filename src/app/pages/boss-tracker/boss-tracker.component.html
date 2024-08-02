@@ -1,0 +1,40 @@
+<div class="boss-tracker">
+  <div class="header">
+    <h1>Total Kills: {{ totalKills }}</h1>
+  </div>
+
+  <div class="boss-cards">
+    <div class="boss-card" *ngFor="let boss of bossApis">
+      <img [src]="boss.iconUrl" alt="{{ boss.bossKey }}">
+      <h2>{{ boss.bossKey | titlecase }}:<br>{{ getTotalKillsForBoss(boss.bossKey) }}</h2>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <input class="input-field" [(ngModel)]="searchUsername" placeholder="Enter player username"
+           (keyup.enter)="filterPlayerData()" (input)="resetSearch()">
+    <button class="button-search" (click)="filterPlayerData()">Search</button>
+  </div>
+
+  <div class="kill-section">
+    <div *ngFor="let group of killGroups" class="tab" [class.hidden]="isSearchActive && !openedTabs.has(group.range)">
+      <input type="checkbox" id="{{ group.range }}" [checked]="isTabOpen(group.range)"
+             (change)="toggleTab(group.range)">
+      <label for="{{ group.range }}">{{ group.range }}</label>
+      <div class="tab-content" [style.display]="isTabOpen(group.range) ? 'block' : 'none'">
+        <p>Total in group: {{ group.total }}</p>
+        <ul>
+          <li *ngFor="let player of getPlayersForGroup(group.range)">
+            {{ player.name }} - Total Kills: {{ player.kills.total }}
+            <div class="kill-cards">
+              <div class="kill-card" *ngFor="let key of bossApis">
+                <img [src]="key.iconUrl" [alt]="key.bossKey" class="kill-icon">
+                <span>{{ key.bossKey | titlecase }}: {{ player.kills[key.bossKey] }}</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
