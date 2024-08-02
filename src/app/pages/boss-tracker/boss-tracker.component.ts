@@ -132,7 +132,6 @@ export class BossTrackerComponent {
     return ranges.map(range => {
       let filteredPlayers = players.filter(p => p.kills.total >= range.min && p.kills.total <= range.max);
 
-      // Sort players in each group by total kills in descending order
       filteredPlayers.sort((a, b) => b.kills.total - a.kills.total);
 
       const totalKills = filteredPlayers.reduce((sum, p) => sum + p.kills.total, 0);
@@ -153,13 +152,13 @@ export class BossTrackerComponent {
 
   resetSearch() {
     if (this.searchUsername.trim() === '') {
-      this.isSearchActive = false; // Immediately deactivate search when input is cleared
+      this.isSearchActive = false;
     }
   }
 
   toggleTab(groupRange: string) {
     if (this.isSearchActive && !this.groupContainsPlayer({ range: groupRange }, this.searchUsername)) {
-      return; // Prevent toggling if search is active and the group does not contain the player
+      return;
     }
     if (this.openedTabs.has(groupRange)) {
       this.openedTabs.delete(groupRange);
@@ -169,6 +168,6 @@ export class BossTrackerComponent {
   }
 
   isTabOpen(groupRange: string): boolean {
-    return this.openedTabs.has(groupRange); // Determine open state solely based on the openedTabs set
+    return this.openedTabs.has(groupRange);
   }
 }

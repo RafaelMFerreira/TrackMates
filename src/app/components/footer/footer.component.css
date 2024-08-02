@@ -1,22 +1,22 @@
 /* footer.component.css */
 footer {
-  background-color: #002244;
+  background-color: #1b1919;
   color: white;
   text-align: center;
   padding: 10px 20px;
   width: 100%;
   box-shadow: 0 -2px 4px rgba(0,0,0,0.5);
-  position: relative; 
+  position: relative;
 }
 
 
 footer a {
-  color: #99ccff;
+  color: #292424;
   text-decoration: none;
   padding: 0 5px;
 }
 
 footer a:hover {
-  color: #ffffff;
+  color: #e63e00;
   text-decoration: underline;
 }

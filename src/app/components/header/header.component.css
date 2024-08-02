@@ -1,6 +1,6 @@
 /* header.component.css */
 header {
-  background-color: #003366;
+  background-color: #1b1919;
   color: white;
   padding: 0px 25px;
   display: flex;
@@ -21,7 +21,7 @@ nav {
 }
 
 .nav-link:hover, .nav-link.active {
-  background-color: #336699;
+  background-color: #292424;
   color: #FFF;
 }
 

@@ -15,7 +15,7 @@
   text-align: center;
   margin-bottom: 20px;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-size: 2rem;
 }
 
@@ -67,62 +67,33 @@
   display: block;
 }
 
-.input-group {
-  display: flex;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.input-field, .button-search {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ff4500;
-}
-
-.input-field {
-  flex-grow: 1;
-  background-color: #333;
-  color: #ffffff;
-}
-
-.button-search {
-  background-color: #ff4500;
-  color: #ffffff;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.button-search:hover {
-  background-color: #e63e00;
-}
-
 .hidden {
   display: none;
 }
 
 .kill-cards {
   display: flex;
-  margin-top: 10px; /* Adds space between the player name and their kills */
+  margin-top: 10px;
 }
 
 .kill-card {
   background-color: #202020;
   border-radius: 8px;
   padding: 5px 10px;
-  margin-right: 10px; /* Space between each kill card */
+  margin-right: 10px;
   display: flex;
-  align-items: center; /* Aligns the text and the icon vertically */
+  align-items: center;
 }
 
 .kill-icon {
-  width: 20px; /* Smaller icon size */
+  width: 20px;
   height: 20px;
-  margin-right: 5px; /* Space between the icon and the text */
+  margin-right: 5px;
 }
 
 .kill-card span {
   color: #ffffff;
-  font-size: 0.8rem; /* Smaller font size for the text within the card */
+  font-size: 0.8rem;
 }
 
 .progress-container {
@@ -135,5 +106,34 @@
   margin-top: 20px;
 }
 
+
+
+
+.input-group {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  }
+  .input-field {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid #ff4500;
+  color: #ffffff;
+  background-color: #333;
+  outline: none;
+  }
+  .button-search {
+  padding: 10px 20px;
+  border: none;
+  background-color: #ff4500;
+  color: #ffffff;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  }
+  .button-search:hover {
+  background-color: #e63e00;
+  }
 
 
