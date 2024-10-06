@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';  // Adjust the path as necessary
 
 
 interface Player {
@@ -11,6 +12,8 @@ interface Player {
     magmadillo: number;
     timberfang: number;
     nightfang: number;
+    liora: number;
+    cryptkeeper: number;
   };
 }
 
@@ -60,6 +63,10 @@ export class BossTrackerComponent {
     { baseUrl: 'https://bitmatemediator.net/game/v1/killstats?valueid=18&time=monthly', bossKey: 'magmadillo', iconUrl: 'https://storage.googleapis.com/apes-f984d.appspot.com/Enemies/Magmadillo.png' },
     { baseUrl: 'https://bitmatemediator.net/game/v1/killstats?valueid=16&time=monthly', bossKey: 'timberfang', iconUrl: 'https://storage.googleapis.com/apes-f984d.appspot.com/Enemies/Timberfang.png' },
     { baseUrl: 'https://bitmatemediator.net/game/v1/killstats?valueid=17&time=monthly', bossKey: 'nightfang', iconUrl: 'https://storage.googleapis.com/apes-f984d.appspot.com/Enemies/Nightfang.png' },
+    { baseUrl: 'https://bitmatemediator.net/game/v1/killstats?valueid=50&time=monthly', bossKey: 'liora', iconUrl: `${environment.basePath}/assets/liora.png` },
+    { baseUrl: 'https://bitmatemediator.net/game/v1/killstats?valueid=19&time=monthly', bossKey: 'cryptkeeper', iconUrl: 'https://storage.googleapis.com/apes-f984d.appspot.com/Enemies/The Cryptkeeper.png' },
+
+
   ];
 
   constructor(private http: HttpClient) {
@@ -99,7 +106,7 @@ export class BossTrackerComponent {
             playerEntry = {
               id: player.id,
               name: player.name,
-              kills: { total: 0, crustadon: 0, magmadillo: 0, timberfang: 0, nightfang: 0 }
+              kills: { total: 0, crustadon: 0, magmadillo: 0, timberfang: 0, nightfang: 0, liora: 0, cryptkeeper: 0 }
             };
             this.allPlayers.set(player.id, playerEntry);
           }
