@@ -1,5 +1,6 @@
 // gem-calculator.component.ts
 import { Component } from '@angular/core';
+import { CustomSliderComponent } from '../../components/custom-slider/custom-slider.component';
 
 @Component({
   selector: 'app-gem-calculator',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./gem-calculator.component.css']
 })
 export class GemCalculatorComponent {
+  startLevel: number = 1;
+  endLevel: number = 70;
   stones = [
     { name: 'Emeralds', amount: 0, value: 48, bonusValue: 166, bonusThreshold: 16, icon: 'assets/emerald.png' },
     { name: 'Rubies', amount: 0, value: 74, bonusValue: 168, bonusThreshold: 16, icon: 'assets/ruby.png' },
@@ -15,6 +18,22 @@ export class GemCalculatorComponent {
     { name: 'Gold', amount: 0, value: 0, bonusValue: 33, bonusThreshold: 16, icon: 'assets/gold.png'},
     { name: 'Silver', amount: 0, value: 0, bonusValue: 25, bonusThreshold: 16, icon: 'assets/silver.png'},
   ];
+  xpNeeded: number = 0; // Initialize XP needed variable
+
+  constructor() {
+    this.calculateTotalXp();
+  }
+
+  calculateTotalXp() {
+    this.xpNeeded = 0;
+    for (let level = this.startLevel + 1; level <= this.endLevel; level++) {
+      this.xpNeeded += this.calculateXp(level);
+    }
+  }
+
+  calculateXp(x: number): number {
+    return Math.floor((0.04 * Math.pow(x, 3) + 0.8 * Math.pow(x, 2) + 2 * x + 50 * x));
+  }
 
   get totalValue() {
     return this.stones.reduce((total, stone) => {

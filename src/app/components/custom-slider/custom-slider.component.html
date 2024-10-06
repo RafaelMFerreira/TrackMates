@@ -1,0 +1,18 @@
+<!-- custom-slider.component.html -->
+<div class="slider-container" [ngClass]="{'sliding': isSliding}">
+  <div class="labels">
+    <span class="label start-label">Start: {{ startLevel }}</span>
+    <span class="label end-label">End: {{ endLevel }}</span>
+  </div>
+  <input type="range" class="slider" [ngStyle]="{ 'z-index': startZIndex }"
+         id="startLevel" [(ngModel)]="startLevel"
+         (input)="onSliderChange()" (mousedown)="startSliding('start')" (mouseup)="stopSliding()"
+         (touchstart)="startSliding('start')" (touchend)="stopSliding()"
+         min="0" max="70" step="1">
+  <input type="range" class="slider" [ngStyle]="{ 'z-index': endZIndex }"
+         id="endLevel" [(ngModel)]="endLevel"
+         (input)="onSliderChange()" (mousedown)="startSliding('end')" (mouseup)="stopSliding()"
+         (touchstart)="startSliding('end')" (touchend)="stopSliding()"
+         min="0" max="70" step="1">
+  <div class="slider-track"></div>
+</div>

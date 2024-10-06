@@ -1,5 +1,14 @@
 <!-- gem-calculator.component.html -->
 <div class="gem-calculator">
+  <div class="level-inputs">
+    <label for="startLevel">Nível Inicial: </label>
+    <input type="number" id="startLevel" [(ngModel)]="startLevel" (change)="calculateTotalXp()" min="0" max="70" placeholder="0">
+    <br>
+    <br>
+    <label for="endLevel">Nível Final: </label>
+    <input type="number" id="endLevel" [(ngModel)]="endLevel" (change)="calculateTotalXp()" min="0" max="70" placeholder="70">
+  </div>
+
   <div class="input-group" *ngFor="let stone of stones">
     <img [src]="stone.icon" alt="{{stone.name}}">
     <input type="number" [(ngModel)]="stone.amount" placeholder="Enter amount of {{stone.name}}">
@@ -8,6 +17,6 @@
     <h3>Total: {{ totalValue |  number:'1.0-0':'pt-BR'}}xp</h3>
   </div>
   <div class="additional-info">
-    <small>XP do 50 pro 70: 303.992</small>
+    <small>XP do {{startLevel}} pro {{endLevel}}: {{xpNeeded | number:'1.0-0':'pt-BR'}}</small>
   </div>
 </div>

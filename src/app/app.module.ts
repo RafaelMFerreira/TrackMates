@@ -13,6 +13,7 @@ import { registerLocaleData } from '@angular/common';
 import { InventoryLookupComponent } from './pages/inventory-lookup/inventory-lookup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BossTrackerComponent } from './pages/boss-tracker/boss-tracker.component';
+import { CustomSliderComponent } from './components/custom-slider/custom-slider.component';
 
 registerLocaleData(localePt);
 
@@ -22,13 +23,14 @@ registerLocaleData(localePt);
         FooterComponent,
         GemCalculatorComponent,
         InventoryLookupComponent,
-        BossTrackerComponent
+        BossTrackerComponent,
+        CustomSliderComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         AppRoutingModule,
-        NgbModule
+        NgbModule,
     ],
     bootstrap: [AppComponent],
     providers: [
